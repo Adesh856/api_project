@@ -51,7 +51,7 @@ cartRouter.post("/add",async(req,res)=>{
             } // bar
           });
         }else{
-            res.status(200).send("Already Added to cart")
+            res.status(200).send({"msg":"Product already added  in the cart"})
         }
     } catch (error) {
         res.status(400).send({"msg":error.message})
