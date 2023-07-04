@@ -36,7 +36,7 @@ cartRouter.post("/add",async(req,res)=>{
     const token=req.headers.authorization
     const payload=req.body
     try {
-        const cartforchecking=await CartModel.find({title:payload.title,userid:payload.userid})
+        const cartforchecking=await CartModel.find({desc:payload.desc,userid:payload.userid})
         if(cartforchecking.length==0){
         jwt.verify(token, 'BYST',async function(err, decoded) {
             console.log(decoded.userid==req.body.userid)
