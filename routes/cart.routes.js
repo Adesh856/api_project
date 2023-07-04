@@ -100,15 +100,6 @@ cartRouter.delete("/delete/:id",async(req,res)=>{
     }
 })
 
-//Add Quantity 
-cartRouter.patch("/addquantity/:id",async(req,res)=>{
-       const {quantity} = req.body
-       const {id} = req.params
-    try {
-        await CartModel.findByIdAndUpdate({_id:id,userid:req.body.userid},quantity)
-    } catch (error) {
-        res.status(400).send({"msg":error.message})
-    }
-})
+
 
 module.exports={cartRouter}
