@@ -41,7 +41,7 @@ cartRouter.post("/add",async(req,res)=>{
         jwt.verify(token, 'BYST',async function(err, decoded) {
             console.log(decoded.userid==req.body.userid)
             if(decoded.userid==req.body.userid){
-                if(payload.title!==cartforchecking.title){
+                if(payload.desc!==cartforchecking.desc){
                 const cart=new CartModel({...payload,userid:req.body.userid})
                   await cart.save()
         res.status(200).send({"msg":"Product has been added"})
